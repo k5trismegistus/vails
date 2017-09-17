@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title Vails
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    nav
+      div.nav-wrapper
+        = link_to 'Vails', root_path, class: 'brand-logo center'
+    = yield

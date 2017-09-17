@@ -1,7 +1,10 @@
-h1 Hello
-- @videos.each do |video|
-  = link_to video_path(video.id) do
-    div
-      p
-        = video.filename
-      img src="#{root_path}thumbnails/#{video.thumbnail_filename}"
+.row
+  .container
+    .col.s12
+      - @videos.each do |video|
+        .col.s2.card
+          = link_to video_path(video.id) do
+            .card-image
+              img src="#{root_path}thumbnails/#{video.thumbnail_filename}"
+              .card-title
+                = video.filename

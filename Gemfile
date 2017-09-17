@@ -17,6 +17,7 @@ gem 'sidekiq'
 gem 'streamio-ffmpeg'
 gem 'slim-rails'
 gem 'kaminari'
+gem 'materialize-sass'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
