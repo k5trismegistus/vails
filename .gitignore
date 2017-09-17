@@ -12,6 +12,14 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore files for test use.
+/import/*
+!/import/.keep
+/public/thumbnails
+!/public/thumbnails/.keep
+/public/videos/*
+!/public/videos/.keep
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

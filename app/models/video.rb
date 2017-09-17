@@ -11,4 +11,5 @@
 #
 
 class Video < ApplicationRecord
+  include Importable
 end
