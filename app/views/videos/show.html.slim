@@ -1,4 +1,10 @@
 .row
-  .s8.center
-    video src="#{root_path}imported_videos/#{@video.filename}" type='video/mp4' controls=true
+  .container
+    .center
+      - @video.tags.each do |tag|
+        .chip
+          = tag.content
+          i.close.material-icons
+      .content
+        video src="#{root_path}imported_videos/#{@video.filename}" type='video/mp4' controls=true
 

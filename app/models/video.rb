@@ -12,4 +12,7 @@
 
 class Video < ApplicationRecord
   include Importable
+
+  has_many :taggings
+  has_many :tags, through: :taggings
 end
