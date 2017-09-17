@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170917022735) do
+ActiveRecord::Schema.define(version: 20170917085542) do
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer "video_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id", "video_id"], name: "index_taggings_on_tag_id_and_video_id"
+    t.index ["video_id", "tag_id"], name: "index_taggings_on_video_id_and_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "videos", force: :cascade do |t|
     t.string "filename"
