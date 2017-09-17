@@ -17,8 +17,8 @@
 !/import/.keep
 /public/thumbnails
 !/public/thumbnails/.keep
-/public/videos/*
-!/public/videos/.keep
+/public/imported_videos/*
+!/public/imported_videos/.keep
 
 # Ignore all logfiles and tempfiles.
 /log/*

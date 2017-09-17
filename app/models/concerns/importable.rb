@@ -3,7 +3,7 @@ module Importable
 
   class AlreadyImportedVideo < StandardError; end
 
-  VIDEO_DIR = Rails.root.join('public/videos')
+  VIDEO_DIR = Rails.root.join('public/imported_videos')
   THUMBNAIL_DIR = Rails.root.join('public/thumbnails')
 
   class_methods do

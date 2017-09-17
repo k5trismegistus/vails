@@ -1,0 +1,5 @@
+h1
+  = @video.filename
+video src="#{root_path}imported_videos/#{@video.filename}" type='video/mp4' controls=true
+
+= link_to 'TOP', root_path

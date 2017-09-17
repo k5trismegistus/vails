@@ -1,0 +1,7 @@
+h1 Hello
+- @videos.each do |video|
+  = link_to video_path(video.id) do
+    div
+      p
+        = video.filename
+      img src="#{root_path}thumbnails/#{video.thumbnail_filename}"
