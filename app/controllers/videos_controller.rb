@@ -1,6 +1,11 @@
 class VideosController < ApplicationController
   def index
-    @videos = Video.page(params[:p]).per(20)
+    unless params[:tag].present?
+      @videos = Video.page(params[:p]).per(20)
+    else
+      @tag = Tag.find_by(content: params[:tag])
+      @videos = @tag.videos
+    end
   end
 
   def show
