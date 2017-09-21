@@ -1,0 +1,5 @@
+- taggings.each do |tagging|
+  .chip
+    = tagging.tag.content
+    = link_to "/taggings/#{tagging.id}", method: :delete, remote: true
+      i.close.material-icons close

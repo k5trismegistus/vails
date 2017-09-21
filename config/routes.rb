@@ -2,4 +2,5 @@ Rails.application.routes.draw do
   root 'videos#index'
 
   resources :videos, only: [:show]
+  resources :taggings, only: [:create, :destroy]
 end
