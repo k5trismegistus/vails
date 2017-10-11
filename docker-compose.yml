@@ -1,0 +1,25 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - RAILS_ENV=production
+      - SECRET_KEY_BASE=0c7165cc868a4b9387c702d6ae98a741c4220923ac341f297f17e7b10c4f43025c076c43b8a5d372fce47db0e7ea172f202a4e93038bfadc7a15080d409cb28c
+    volumes:
+      - '.:/app'
+    links:
+      - redis
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  batch:
+    build: .
+    environment:
+      - RAILS_ENV=production
+    volumes:
+      - '.:/app'
+    links:
+      - redis
+    command: bundle exec sidekiq
+  redis:
+    image: 'redis:4'

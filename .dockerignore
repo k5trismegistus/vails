@@ -1,0 +1,16 @@
+# Ignore bundler config.
+.bundle
+vendor/bundle
+
+# Ignore files for test use.
+import
+public/thumbnails
+public/imported_videos
+
+log
+tmp
+
+node_modules
+yarn-error.log
+
+.byebug_history
