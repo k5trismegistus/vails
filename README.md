@@ -15,7 +15,7 @@ I tested only with videso encoded as h264. With videos encoded as other codec mi
 
 ```
 $ docker-compose build
-$ docker-compose run app bundle exec rake db:migrate
+$ docker-compose run app bundle exec rake db:setup
 $ docker-compose run app bundle exec rake assets:precompile
 ```
 
