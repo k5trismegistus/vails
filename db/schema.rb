@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170917085542) do
+ActiveRecord::Schema.define(version: 20180414074241) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "taggings", force: :cascade do |t|
     t.integer "video_id", null: false
@@ -36,4 +39,5 @@ ActiveRecord::Schema.define(version: 20170917085542) do
     t.index ["md5"], name: "index_videos_on_md5"
   end
 
+  add_foreign_key "taggings", "videos", on_delete: :cascade
 end

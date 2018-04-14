@@ -15,4 +15,16 @@ class Video < ApplicationRecord
 
   has_many :taggings
   has_many :tags, through: :taggings
+
+  before_destroy :delete_files
+
+  VIDEO_DIR = Rails.root.join('public/imported_videos')
+  THUMBNAIL_DIR = Rails.root.join('public/thumbnails')
+
+
+  private
+  def delete_files
+    File.delete("#{VIDEO_DIR}/#{filename}")
+    File.delete("#{THUMBNAIL_DIR}/#{thumbnail_filename}")
+  end
 end

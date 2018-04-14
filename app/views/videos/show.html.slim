@@ -1,15 +1,22 @@
 .row
   .container
     .center
-      .container#tag-list
+      .container#tag-list.tag-list
         = render partial: 'tag_list', locals: { taggings: @video.taggings }
+
       .container
+        video src="#{root_path}imported_videos/#{@video.filename}" type='video/mp4' controls=true
+
+      .container.tag-form
         = form_tag '/taggings', method: :post, remote: true do
           input type="hidden" name="video_id" value="#{@video.id}"
           .col.s10
             input name="tag_content" type="text"
           .col.s2
-            button.waves-effect.waves-light.btn type="submit" value="add tag"
-      .container
-        video src="#{root_path}imported_videos/#{@video.filename}" type='video/mp4' controls=true
+            button.waves-effect.waves-light.btn type="submit" value="タグ追加"
+              | タグ追加
+
+      .container.control
+        = button_to '削除', { action: :destroy, id: @video.id }, method: :delete
+
 

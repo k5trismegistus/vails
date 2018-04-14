@@ -4,9 +4,9 @@
       - if @tag.present?
         p #{@tag.content}がつけられている動画
       - @videos.each do |video|
-        .col.s2.card
+        .col.s4.card
           = link_to video_path(video.id) do
             .card-image
               img src="#{root_path}thumbnails/#{video.thumbnail_filename}"
-              .card-title
-                = video.filename
+            .card-content
+              = video.filename
