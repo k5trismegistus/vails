@@ -1,7 +1,7 @@
-FROM ruby:2.4-alpine3.6
+FROM ruby:2.4-slim-stretch
 
 # install necessary packages
-RUN apk update && apk add alpine-sdk nodejs postgresql-dev ffmpeg imagemagick ruby-dev zlib-dev xz-dev
+RUN apt-get update && apt-get install -y build-essential nodejs libpq-dev imagemagick ruby-dev zlib1g-dev liblzma-dev ffmpeg
 
 RUN gem install bundler
 WORKDIR /tmp

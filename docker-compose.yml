@@ -20,8 +20,9 @@ services:
     volumes:
       - '.:/app'
     links:
+      - postgres
       - redis
-    command: bundle exec sidekiq
+    command: bundle exec sidekiq -C config/sidekiq.yml
   postgres:
     image: 'postgres:9-alpine'
     environment:

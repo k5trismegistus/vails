@@ -7,22 +7,19 @@ module Importable
   THUMBNAIL_DIR = Rails.root.join('public/thumbnails')
 
   class_methods do
-    def extract_scenes
-
-    end
-
     def import(path)
       file = File.open(path) do |f|
         md5 = Digest::MD5.file(f).to_s
         raise AlreadyImportedVideo if Video.find_by(md5: md5).present?
 
-        v = FFMPEG::Movie.new(path)
+        d = `ffprobe -i "#{path}" -show_entries format=duration -print_format json  -loglevel quiet`
+        duration = JSON.parse(d)['format']['duration'].to_i
 
         Dir.mktmpdir(nil, Rails.root.join('tmp')) do |dir|
           (0..9).each do |i|
-            v.screenshot("#{dir}/img_#{sprintf('%02d', i)}.jpg", { seek_time: ( v.duration * i / 10), resolution: '640x360'}, preserve_aspect_ratio: :height)
-            `convert -delay 40 -loop 0 #{dir}/img_*.jpg #{THUMBNAIL_DIR}/#{md5}.gif`
+            `ffmpeg -ss #{(duration * i / 10).to_i} -t 1 -r 1 -i "#{path}" -f image2 -s 640x360 #{dir}/img_#{sprintf('%02d', i)}.jpg`
           end
+          `convert -delay 40 -loop 0 #{dir}/img_*.jpg #{THUMBNAIL_DIR}/#{md5}.gif`
         end
         FileUtils.copy(path, VIDEO_DIR)
 
@@ -33,5 +30,5 @@ module Importable
         )
       end
     end
-    end
+  end
 end
