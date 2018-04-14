@@ -8,15 +8,17 @@
         video src="#{root_path}imported_videos/#{@video.filename}" type='video/mp4' controls=true
 
       .container.tag-form
+        p Add new tag
         = form_tag '/taggings', method: :post, remote: true do
           input type="hidden" name="video_id" value="#{@video.id}"
           .col.s10
             input name="tag_content" type="text"
           .col.s2
-            button.waves-effect.waves-light.btn type="submit" value="タグ追加"
-              | タグ追加
+            button.waves-effect.waves-light.btn type="submit"
+              | ADD
 
       .container.control
-        = button_to '削除', { action: :destroy, id: @video.id }, method: :delete
+        .col.s12
+          = button_to 'DELETE THIS VIDEO', { action: :destroy, id: @video.id }, method: :delete, class: 'btn red'
 
 
