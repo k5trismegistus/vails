@@ -10,6 +10,6 @@
               .card-image
                 img src="#{root_path}thumbnails/#{video.thumbnail_filename}"
               .card-content
-                = video.filename
+                = video.filename.truncate(12) 
       .pagenator
         = paginate @videos
