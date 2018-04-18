@@ -31,3 +31,5 @@
 /yarn-error.log
 
 .byebug_history
+
+docker-compose.yml
