@@ -4,7 +4,7 @@ class VideosController < ApplicationController
       @videos = Video.page(params[:page]).per(21)
     else
       @tag = Tag.find_by(content: params[:tag])
-      @videos = @tag.videos
+      @videos = @tag.videos.page(params[:page]).per(21)
     end
   end
 
