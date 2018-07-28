@@ -9,6 +9,7 @@ public/imported_videos
 
 log
 tmp
+nginx
 
 node_modules
 yarn-error.log
