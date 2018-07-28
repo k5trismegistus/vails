@@ -23,8 +23,10 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/nginx/logs
 !/log/.keep
 !/tmp/.keep
+!/nginx/logs/.keep
 
 /public/assets
 /node_modules
