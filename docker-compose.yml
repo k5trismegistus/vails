@@ -10,7 +10,8 @@ services:
     volumes:
       - '.:/app'
       - '~/public/videos:/app/import'
-      - '~/public/vails_public:/app/public'
+      - '~/public/vails_public/thumbnails:/app/public/thumbnails'
+      - '~/public/vails_public/imported_videos:/app/public/imported_videos'                  
     links:
       - postgres
       - redis
@@ -22,7 +23,8 @@ services:
     volumes:
       - '.:/app'
       - '~/public/videos:/app/import'
-      - '~/public/vails_public:/app/public'      
+      - '~/public/vails_public/thumbnails:/app/public/thumbnails'
+      - '~/public/vails_public/imported_videos:/app/public/imported_videos'                  
     links:
       - postgres
       - redis
