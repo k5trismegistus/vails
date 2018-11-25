@@ -1,14 +1,14 @@
 version: '3'
 services:
   app:
-    build: .
+    build: ./app
     ports:
       - '3000:3000'
     environment:
       - RAILS_ENV=production
       - SECRET_KEY_BASE=0c7165cc868a4b9387c702d6ae98a741c4220923ac341f297f17e7b10c4f43025c076c43b8a5d372fce47db0e7ea172f202a4e93038bfadc7a15080d409cb28c
     volumes:
-      - '.:/app'
+      - './app:/app'
       - '~/public/videos:/app/import'
       - '~/public/vails_public/thumbnails:/app/public/thumbnails'
       - '~/public/vails_public/imported_videos:/app/public/imported_videos'                  
@@ -17,11 +17,11 @@ services:
       - redis
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
   batch:
-    build: .
+    build: ./app
     environment:
       - RAILS_ENV=production
     volumes:
-      - '.:/app'
+      - './app:/app'
       - '~/public/videos:/app/import'
       - '~/public/vails_public/thumbnails:/app/public/thumbnails'
       - '~/public/vails_public/imported_videos:/app/public/imported_videos'                  
@@ -44,6 +44,14 @@ services:
       - '8080:8080'
     volumes:
       - './nginx/logs:/var/log/nginx'
-      - './public:/public'
+      - '~/public/vails_public:/public'
     links:
       - app
+  deploy:
+    build: ./deploy
+    volumes:
+     - ./deploy:/app
+     - ./:/app/src
+     - ./tmp:/tmp
+    working_dir: /app
+    env_file: ./deploy/.env
