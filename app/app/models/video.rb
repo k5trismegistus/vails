@@ -26,5 +26,7 @@ class Video < ApplicationRecord
   def delete_files
     File.delete("#{VIDEO_DIR}/#{filename}")
     File.delete("#{THUMBNAIL_DIR}/#{thumbnail_filename}")
+  rescue => e
+    Rails.logger.error(e)
   end
 end
