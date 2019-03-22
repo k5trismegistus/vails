@@ -1,10 +1,10 @@
 class VideosController < ApplicationController
   def index
     unless params[:tag].present?
-      @videos = Video.page(params[:page]).per(21)
+      @videos = Video.order(:id).page(params[:page]).per(21)
     else
       @tag = Tag.find_by(content: params[:tag])
-      @videos = @tag.videos.page(params[:page]).per(21)
+      @videos = @tag.videos.order(:id).page(params[:page]).per(21)
     end
   end
 
