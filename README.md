@@ -19,6 +19,28 @@ $ docker-compose run app bundle exec rake db:setup
 $ docker-compose run app bundle exec rake assets:precompile
 ```
 
+### Deploy
+
+Fill /deploy/.env
+
+Only deploy code change
+
+```
+$ docker-compose run --rm deploy fab deploy
+```
+
+When assets new gem added or assets precompile needed
+
+```
+$ docker-compose run --rm deploy fab rebuild
+```
+
+When docker image rebuild required
+
+```
+$ docker-compose run --rm deploy fab rebuildimage
+```
+
 ### Run server
 ```
 $ docker-compose up
