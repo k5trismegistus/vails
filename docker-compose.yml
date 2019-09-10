@@ -11,7 +11,7 @@ services:
       - './app:/app'
       - '~/public/videos:/app/import'
       - '~/public/vails_public/thumbnails:/app/public/thumbnails'
-      - '~/public/vails_public/imported_videos:/app/public/imported_videos'                  
+      - '~/public/vails_public/imported_videos:/app/public/imported_videos'
     links:
       - postgres
       - redis
@@ -24,7 +24,7 @@ services:
       - './app:/app'
       - '~/public/videos:/app/import'
       - '~/public/vails_public/thumbnails:/app/public/thumbnails'
-      - '~/public/vails_public/imported_videos:/app/public/imported_videos'                  
+      - '~/public/vails_public/imported_videos:/app/public/imported_videos'
     links:
       - postgres
       - redis
