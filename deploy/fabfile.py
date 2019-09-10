@@ -16,7 +16,7 @@ def compress(ctx):
     run(f'tar --exclude .git --exclude tmp -czf /tmp/{os.getenv("COMPRESSED_NAME")} ./src')
 
 @task
-def rebuildcontainer(ctx):
+def rebuildimage(ctx):
     production(ctx)
     with Connection(ctx.host, user=ctx.user, connect_kwargs=ctx.connect_kwargs) as conn:
         conn.run(f'cd {ctx.working_dir}; docker-compose stop')

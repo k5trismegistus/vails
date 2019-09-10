@@ -1,4 +1,4 @@
-FROM ruby:2.4-slim-stretch
+FROM ruby:2.6-slim-stretch
 
 # install necessary packages
 RUN apt-get update && apt-get install -y build-essential nodejs libpq-dev imagemagick ruby-dev zlib1g-dev liblzma-dev ffmpeg
