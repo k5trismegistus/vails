@@ -1,0 +1,15 @@
+.row
+  .container
+    .col.s12
+      h1 タグ一覧
+      .col.s12.video-list
+        - @tags.each do |tag|
+          - if tag.videos.first
+            .col.s3.card
+              = link_to root_path(tag: tag.content) do
+                .card-image
+                  img src="#{root_path}thumbnails/#{tag.videos.first.thumbnail_filename}"
+                .card-content
+                  = tag.content
+      .pagenator
+        = paginate @tags
