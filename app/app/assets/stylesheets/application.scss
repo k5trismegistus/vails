@@ -2,26 +2,47 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 .container {
-  margin: 0;
+  width: 100%;
 }
 
-.tag-list {
-  margin-top: 30px;
+.pagination {
+  text-align: center;
 }
+
+.tag-box {
+  margin-top: 2rem;
+  align-items: center;
+  display: flex;
+
+  .tag-list {
+    text-align: left;
+    flex-grow: 3;
+  }
+
+  .tag-form {
+    flex-grow: 1;
+  }
+}
+
 
 .video-container {
-  width: 100vw;
-  margin-top: 50px;
+  margin-top: 3rem;
+
+  video {
+    width: 100%;
+  }
 }
 
-.tag-form {
-  margin-top: 80px;
+.player-control {
+  display: flex;
+  justify-content: space-around;
+
+  .player-control-button {
+    width: 12rem;
+    font-size: 2rem;
+  }
 }
 
 .control {
-  margin-top: 60px;
-}
-
-video {
-  width: 100vw;
+  margin-top: 3rem;
 }

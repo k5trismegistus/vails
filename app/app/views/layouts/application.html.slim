@@ -11,4 +11,8 @@ html
     nav
       div.nav-wrapper
         = link_to 'Vails', root_path, class: 'brand-logo center'
-    = yield
+        ul.right
+          li
+            = link_to 'Tags', tags_path
+    div id="#{params[:action]}-#{params[:controller]}"
+      = yield
