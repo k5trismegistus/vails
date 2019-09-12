@@ -35,8 +35,8 @@ def rebuild(ctx):
 def restart(ctx):
     production(ctx)
     with Connection(ctx.host, user=ctx.user, connect_kwargs=ctx.connect_kwargs) as conn:
-        conn.run(f'cd {ctx.working_dir}; docker-compose stop')
-        conn.run(f'cd {ctx.working_dir}; docker-compose up -d')
+        conn.run(f'cd {ctx.working_dir}; docker-compose stop app batch nginx')
+        conn.run(f'cd {ctx.working_dir}; docker-compose up -d app batch nginx')
 
 @task
 def deploy(ctx):
