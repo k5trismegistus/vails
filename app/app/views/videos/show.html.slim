@@ -2,7 +2,15 @@
   .row
     .center
       .video-container
-        video src="#{root_path}imported_videos/#{@video.filename}" type='video/mp4' controls=true
+        video src="#{root_path}imported_videos/#{@video.filename}" type='video/mp4' controls=true id="video-player"
+
+      .player-control
+        button.player-control-button.back.btn-large value='300' -300
+        button.player-control-button.back.btn-large value='60' -60
+        button.player-control-button.back.btn-large value='10' -10
+        button.player-control-button.forward.btn-large value='10' +10
+        button.player-control-button.forward.btn-large value='60' +60
+        button.player-control-button.forward.btn-large value='300' +300
 
       .tag-box
         #tag-list.tag-list

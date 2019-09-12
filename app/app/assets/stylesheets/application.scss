@@ -9,9 +9,6 @@
   text-align: center;
 }
 
-.video-grid {
-}
-
 .tag-box {
   margin-top: 2rem;
   align-items: center;
@@ -30,10 +27,20 @@
 
 .video-container {
   margin-top: 3rem;
+
+  video {
+    width: 100%;
+  }
 }
 
-video {
-  width: 100%;
+.player-control {
+  display: flex;
+  justify-content: space-around;
+
+  .player-control-button {
+    width: 12rem;
+    font-size: 2rem;
+  }
 }
 
 .control {

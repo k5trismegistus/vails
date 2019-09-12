@@ -23,8 +23,12 @@ module Importable
         end
         FileUtils.copy(path, VIDEO_DIR)
 
+        filename = path.split('/').last
+
+        FileUtils.chmod(0666, File.join(VIDEO_DIR, filename))
+
         Video.create!(
-          filename: path.split('/').last,
+          filename: filename,
           md5: md5,
           thumbnail_filename: "#{md5}.gif"
         )
