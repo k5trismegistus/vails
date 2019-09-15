@@ -2,12 +2,6 @@
   .row
     .col.s12.video-grid
       .col.s12.video-list
-        - @videos.each do |video|
-          .col.s3.card
-            = link_to video_path(video.id) do
-              .card-image
-                img src="#{root_path}thumbnails/#{video.thumbnail_filename}"
-              .card-content
-                = video.filename.truncate(12)
+        = render partial: 'box', collection: @videos, as: 'video'
       .pagenator
         = paginate @videos

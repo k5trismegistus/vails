@@ -1,7 +1,7 @@
 .container
   .row
     .center
-      .video-container
+      .video-player-container
         video src="#{root_path}imported_videos/#{@video.filename}" type='video/mp4' controls=true id="video-player"
 
       .player-control
@@ -12,20 +12,30 @@
         button.player-control-button.forward.btn-large value='60' +60
         button.player-control-button.forward.btn-large value='300' +300
 
-      .tag-box
-        #tag-list.tag-list
-          = render partial: 'tag_list', locals: { taggings: @video.taggings }
+      .player-metadata
+        .player-detail
+          p
+            = @video.filename
+          p
+            span#video-width
+            | x
+            span#video-height
 
-        .tag-form
-          = form_tag '/taggings', method: :post, remote: true do
-            input type="hidden" name="video_id" value="#{@video.id}" placeholder='Add new tag'
-            .col.s10
-              input name="tag_content" type="text"
-            .col.s2
-              button.waves-effect.waves-light.btn type="submit"
-                | ADD
 
-      .control
-        = button_to 'DELETE THIS VIDEO', { action: :destroy, id: @video.id }, method: :delete, class: 'btn red right'
+        .tag-box
+          #tag-list.tag-list
+            = render partial: 'tag_list', locals: { taggings: @video.taggings }
+
+          .tag-form
+            = form_tag '/taggings', method: :post, remote: true do
+              input type="hidden" name="video_id" value="#{@video.id}" placeholder='Add new tag'
+              .col.s10
+                input name="tag_content" type="text" id='tag-input-content'
+              .col.s2
+                button.waves-effect.waves-light.btn type="submit" id='tag-input-submit'
+                  | ADD
+
+        .control
+          = button_to 'DELETE THIS VIDEO', { action: :destroy, id: @video.id }, method: :delete, class: 'btn red right'
 
 

@@ -10,6 +10,16 @@ const init = () => {
   $('.player-control-button.forward').on('click.playforward', (e) => {
     videoPlayer.currentTime += parseInt(e.target.value)
   })
+
+  $('#tag-input-button').off('click.tagsubmit')
+  $('#tag-input-button').on('click.tagsubmit', (e) => {
+    $('#tag-input-content')[0].value = ''
+  })
+
+  $('#video-player').on('loadedmetadata', (e) => {
+    $('#video-height')[0].textContent = videoPlayer.videoHeight
+    $('#video-width')[0].textContent = videoPlayer.videoWidth
+  })
 }
 
 $(document).ready(init)
