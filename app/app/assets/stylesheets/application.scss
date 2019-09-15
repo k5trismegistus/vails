@@ -9,29 +9,20 @@
   text-align: center;
 }
 
-.tag-box {
-  margin-top: 2rem;
-  align-items: center;
-  display: flex;
-
-  .tag-list {
-    text-align: left;
-    flex-grow: 3;
-  }
-
-  .tag-form {
-    flex-grow: 1;
+.card {
+  .card-content {
+    padding: 0.4rem;
   }
 }
 
-
-.video-container {
+.video-player-container {
   margin-top: 3rem;
 
   video {
     width: 100%;
   }
 }
+
 
 .player-control {
   display: flex;
@@ -43,6 +34,31 @@
   }
 }
 
-.control {
-  margin-top: 3rem;
+.player-metadata {
+  padding: 0 10rem;
+
+  .player-detail {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tag-box {
+    margin-top: 2rem;
+    align-items: center;
+    display: flex;
+
+    .tag-list {
+      text-align: left;
+      flex-grow: 3;
+    }
+
+    .tag-form {
+      flex-grow: 1;
+    }
+  }
+
+  .control {
+    margin-top: 3rem;
+  }
 }
+
