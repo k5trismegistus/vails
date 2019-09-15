@@ -1,0 +1,11 @@
+.col.s3.card
+  = link_to video_path(video.id) do
+    .card-image
+      img src="#{root_path}thumbnails/#{video.thumbnail_filename}"
+    .card-content
+      = video.filename.truncate(24)
+    .card-content
+      - video.tags.each do |tag|
+        .chip
+          = tag.content
+
